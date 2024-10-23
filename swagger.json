@@ -1,0 +1,786 @@
+{
+  "openapi":"3.1.0",
+  "info":{
+     "title":"Oxytal APIs",
+     "version":"1.3.0",
+     "description":"Explore the All the APIs",
+     "contact":{
+        "name":"Oxytal",
+        "url":"https://my.oxytalapps.com",
+        "email":"support.skolrup@email.com"
+     }
+  },
+  "components":{
+   
+  },
+  "servers":[
+     {
+        "url":"http://localhost:8083"
+     }
+  ],
+  "basePath":"",
+  "tags":[
+     {
+        "name":"EmployeeManagement",
+        "description":"API for users"
+     }
+     
+  ],
+  "produces":[
+     "application/json"
+  ],
+  "paths":{
+     "/employees":{
+        "post":{
+           "tags":[
+              "EmployeeManagement"
+           ],
+           "summary":"Create an Employee",
+           "requestBody":{
+              "content":{
+                 "application/json":{
+                    "schema":{
+                       "$ref":"#/definitions/Employee"
+                    },
+                    "example":{
+                     "feature": "profile",
+                     "section": [
+                       {
+                         "SectionName": "PersonalInfo",
+                         "fields": [
+                           {
+                             "name": "FirstName",
+                             "attributeValue": "",
+                             "type": "text",
+                             "isMandatory": false
+                           },
+                            {
+                             "name": "MiddleName",
+                             "attributeValue": "Reddy",
+                             "type": "text",
+                             "isMandatory": false
+                           },
+                            {
+                             "name": "LastName",
+                             "attributeValue": "P",
+                             "type": "text",
+                             "isMandatory": true
+                           },
+                           {
+                             "name": "MobileNumber",
+                             "attributeValue": "9030466080",
+                             "type": "mobile",
+                             "isMandatory": false
+                           },
+                           {
+                             "name": "DOB",
+                             "attributeValue": "1988/12/12",
+                             "type": "date",
+                             "isMandatory": true
+                           },
+                           {
+                             "name": "emailAddress",
+                             "attributeValue": "Rajashekhar.Reddy315@oxytal.com",
+                             "type": "email",
+                             "isMandatory": false
+                           },
+                           {
+                             "name": "experience",
+                             "attributeValue": "yes",
+                             "type": "radio",
+                             "isMandatory": true
+                           },
+                           {
+                             "name": "department",
+                             "attributeValue": "EMS112",
+                             "type": "dropdown",
+                             "isMandatory": true
+                           },
+                           {
+                             "name": "role",
+                             "attributeValue": "senior developer3",
+                             "type": "dropdown",
+                             "isMandatory": true
+                           },
+                           {
+                             "name": "JoiningCountry",
+                             "attributeValue": "Singapur1",
+                             "type": "dropdown",
+                             "isMandatory": true
+                           }
+                         ]
+                       },
+                       {
+                         "SectionName": "work",
+                         "fields": [
+                           {
+                             "name": "PreviousCompany",
+                             "attributeValue": "infosys",
+                             "type": "text",
+                             "isMandatory": true
+                           },
+                           {
+                             "name": "Role",
+                             "attributeValue": "Manager",
+                             "type": "dropdown",
+                             "isMandatory": false
+                           },
+                           {
+                             "name": "startDate",
+                             "attributeValue": "2021/07/08",
+                             "type": "date",
+                             "isMandatory": false
+                           },
+                           {
+                             "name": "endDate",
+                             "attributeValue": "2021/07/08",
+                             "type": "date",
+                             "isMandatory": false
+                           }
+                           ,
+                           {
+                             "name": "PreviousCountry",
+                             "attributeValue": "delhi",
+                             "type": "dropdown",
+                             "isMandatory": false
+                           }
+                         ]
+                       }
+                       ,
+                       {
+                         "SectionName": "Documents",
+                         "fields": [
+                               {
+                             "name": "pan",
+                             "attributeValue": "path://relative path",
+                             "type": "documentType",
+                             "isMandatory": true
+                           }
+                           
+                         ]
+                       }
+                   
+                     ]
+                   }
+                 }
+              },
+              "required":true
+           },
+           "responses":{
+              "200":{
+                 "description":"ok",
+                 "content":{
+                    "application/json":{
+                       "schema":{
+                        "$ref":"#/definitions/EmployeeCreated"
+                       }
+                    }
+                 }
+              },
+              "404":{
+                 "description":"error",
+                 "content":{
+                    "application/json":{
+                       "schema":{
+                         
+                       }
+                    }
+                 }
+              }
+           }
+        }, "put":{
+         "tags":[
+            "EmployeeManagement"
+         ],
+         "summary":"Update an Employee",
+         "requestBody":{
+            "content":{
+               "application/json":{
+                  "schema":{
+                     "$ref":"#/definitions/EmployeeUpdate"
+                  },
+                  "example":{
+                     "idEmployee": "2f5bbf1c-71c7-43ac-bab7-f0a936b32146",
+                  "feature": "profile",
+                  "section": [
+                    {
+                      "SectionName": "PersonalInfo",
+                      "fields": [
+                        {
+                          "name": "FirstName",
+                          "attributeValue": "Sandeep",
+                          "type": "text",
+                          "isMandatory": true
+                        },
+                         {
+                          "name": "MiddleName",
+                          "attributeValue": "",
+                          "type": "text",
+                          "isMandatory": false
+                        },
+                         {
+                          "name": "LastName",
+                          "attributeValue": "Bawalia",
+                          "type": "text",
+                          "isMandatory": true
+                        },
+                        {
+                          "name": "MobileNumber",
+                          "attributeValue": "8640038754",
+                          "type": "mobile",
+                          "isMandatory": true
+                        },
+                        {
+                          "name": "DOB",
+                          "attributeValue": "1988/12/12",
+                          "type": "date",
+                          "isMandatory": true
+                        },
+                        {
+                          "name": "emailAddress",
+                          "attributeValue": "Sandeep.Bawalia@oxytal.com",
+                          "type": "email",
+                          "isMandatory": true
+                        },
+                        {
+                          "name": "experience",
+                          "attributeValue": "yes",
+                          "type": "radio",
+                          "isMandatory": true
+                        },
+                        {
+                          "name": "department",
+                          "attributeValue": "1",
+                          "type": "dropdown",
+                          "isMandatory": true
+                        },
+                        {
+                          "name": "role",
+                          "attributeValue": "1",
+                          "type": "dropdown",
+                          "isMandatory": true
+                        },
+                        {
+                          "name": "location",
+                          "attributeValue": "1",
+                          "type": "dropdown",
+                          "isMandatory": true
+                        }
+                      ]
+                    },
+                    {
+                      "SectionName": "work",
+                      "fields": [
+                        {
+                          "name": "previousCompany",
+                          "attributeValue": "infosys",
+                          "type": "text",
+                          "isMandatory": true
+                        },
+                        {
+                          "name": "Role",
+                          "attributeValue": "Manager",
+                          "type": "dropdown",
+                          "isMandatory": false
+                        },
+                        {
+                          "name": "startDate",
+                          "attributeValue": "2021/07/08",
+                          "type": "date",
+                          "isMandatory": false
+                        },
+                        {
+                          "name": "endDate",
+                          "attributeValue": "2021/07/08",
+                          "type": "date",
+                          "isMandatory": false
+                        }
+                        ,
+                        {
+                          "name": "location",
+                          "attributeValue": "delhi",
+                          "type": "text",
+                          "isMandatory": false
+                        }
+                      ]
+                    }
+                    ,
+                    {
+                      "SectionName": "Documents",
+                      "fields": [
+                            {
+                          "name": "documentType",
+                          "attributeValue": "pan",
+                          "type": "dropdown",
+                          "isMandatory": true
+                        },
+                        {
+                          "name": "uploadDocument",
+                          "attributeValue": "dg6786767676",
+                          "type": "file",
+                          "isMandatory": false
+                        }
+                        
+                      ]
+                    }
+                  ]
+                }
+               }
+            },
+            "required":true
+         },
+         "responses":{
+            "200":{
+               "description":"ok",
+               "content":{
+                  "application/json":{
+                     "schema":{
+                        "properties":{
+                           "status_message":{
+                              "type":"string",
+                              "example":"Succesfully updeted the Employee"
+                           },
+                           "status":{
+                              "type":"string",
+                              "example":"success"
+                           }
+                        }
+                     }
+                  }
+               }
+            },
+            "404":{
+               "description":"error",
+               "content":{
+                  "application/json":{
+                     "schema":{
+                       
+                     }
+                  }
+               }
+            }
+         }
+      },
+        "get":{
+         "tags":[
+            "EmployeeManagement"
+         ],
+         "summary":"Get All Employees",
+        
+         "responses":{
+            "200":{
+               "description":"ok",
+               "content":{
+                  "application/json":{
+                     "schema":{
+                        "$ref":"#/definitions/employeeReturn"
+                     }
+                  }
+               }
+            },
+            "404":{
+               "description":"error"
+            }
+         }
+      }
+     },
+     "/getEmployeeById":{
+      "get":{
+      "tags":[
+         "EmployeeManagement"
+      ],
+      "summary":"Get Employee by Employee Id",
+      "parameters":[
+         {
+            "name":"idEmployee",
+            "in":"query",
+            "type":"string",
+            "required":true,
+            "description":"enter Empoloyee Id"
+         }
+
+         
+      ] ,
+      "responses":{
+         "200":{
+            "description":"ok",
+            "content":{
+               "application/json":{
+                  "schema":{
+                     "$ref":"#/definitions/employeeReturn"
+                  }
+               }
+            }
+         },
+         "404":{
+            "description":"error"
+         }
+      }
+   }
+     },
+     "/workExperience":{
+      "post":{
+         "tags":[
+            "EmployeeManagement"
+         ],
+         "summary":"Add or update  Employee Work Experience",
+         "requestBody":{
+            "content":{
+               "application/json":{
+                  "schema":{
+                     "$ref":"#/definitions/EmployeeWorkExpModel"
+                  },
+                  "example":{
+                        "feature": "profile",
+                        "section": [
+                          
+                          {
+                            "SectionName": "work",
+                            "fields": [
+                              {
+                                "name": "previousCompany",
+                                "attributeValue": "infosys",
+                                "type": "text",
+                                "isMandatory": true
+                              },
+                              {
+                                "name": "Role",
+                                "attributeValue": "Manager",
+                                "type": "dropdown",
+                                "isMandatory": false
+                              },
+                              {
+                                "name": "startDate",
+                                "attributeValue": "2021/07/08",
+                                "type": "date",
+                                "isMandatory": false
+                              },
+                              {
+                                "name": "endDate",
+                                "attributeValue": "2021/07/08",
+                                "type": "date",
+                                "isMandatory": false
+                              }
+                              ,
+                              {
+                                "name": "location",
+                                "attributeValue": "delhi",
+                                "type": "text",
+                                "isMandatory": false
+                              }
+                            ]
+                          }
+                          
+                        ]
+                      }
+                  
+               }
+            },
+            "required":true
+         },
+         "responses":{
+            "200":{
+               "description":"ok",
+               "content":{
+                  "application/json":{
+                     "schema":{
+                        "properties":{
+                           "status_message":{
+                              "type":"string",
+                              "example":"Succesfully added the Employee Work experience"
+                           },
+                           "status":{
+                              "type":"string",
+                              "example":"success"
+                           }
+                        }
+                     }
+                  }
+               }
+            },
+            "404":{
+               "description":"error",
+               "content":{
+                  "application/json":{
+                     "schema":{
+                       
+                     }
+                  }
+               }
+            }
+         }
+      }
+   },
+   "/employeeDocumentsInfo":{
+
+   }
+      
+     
+  },
+
+  "definitions":{
+
+   "Employee":{
+    
+      "properties":{
+         "feature":{
+            "type":"string",
+            "example":"Profile"  
+         },
+
+         "section": {
+            "type":"array",
+            "items":{
+               "minItems":1,
+               "type":"object",
+               "required":[
+                  "fields"
+               ],
+               "properties":{
+                  "SectionName": {
+                     "type":"string",
+                     "example":"PersonalInfo"
+                  },
+
+                  "fields":{
+                     "type":"array",
+                     "items":{
+                        "minItems":1,
+                        "type":"object",
+                        "required":[
+                           "FirstName"
+                        ],
+                        "properties":{
+                           "name": {
+                              "type":"string",
+                              "example":"FirstName"
+                           },
+                           "attributeValue": {
+                              "type":"string",
+                              "example":"Rajashekhar"
+                           },
+                           "type": {
+                              "type":"string",
+                              "example":"text"
+                           }
+                           ,
+                           "isMandatory": {
+                              "type":"boolean",
+                              "example":true
+                           }
+                        }
+                        }
+                  }
+               }
+         }
+      }
+   
+   }
+}, "EmployeeUpdate":{
+   "required":[
+      "idEmployee"
+   ],
+   "properties":{
+    
+      "feature":{
+         "type":"string",
+         "example":"Profile"
+      },
+      "idEmployee":{
+         "type":"string",
+         "example":"2f5bbf1c-71c7-43ac-bab7-f0a936b32146"
+      },
+
+      "section": {
+         "type":"array",
+         "items":{
+            "minItems":1,
+            "type":"object",
+            "required":[
+               "fields"
+            ],
+            "properties":{
+               "SectionName": {
+                  "type":"string",
+                  "example":"PersonalInfo"
+               },
+
+               "fields":{
+                  "type":"array",
+                  "items":{
+                     "minItems":1,
+                     "type":"object",
+                     "properties":{
+                        "name": {
+                           "type":"string",
+                           "example":"FirstName"
+                        },
+                        "attributeValue": {
+                           "type":"string",
+                           "example":"Rajashekhar"
+                        },
+                        "type": {
+                           "type":"string",
+                           "example":"text"
+                        }
+                        ,
+                        "isMandatory": {
+                           "type":"boolean",
+                           "example":true
+                        }
+                     }
+                     }
+               }
+            }
+      }
+   }
+
+}
+},
+   "EmployeeCreated":{
+      "properties":{
+         "status_message":{
+            "type":"string",
+            "example":"Succesfully Employee Created"
+         },
+         "status":{
+            "type":"string",
+            "example":"success"
+         }
+      }
+
+   },
+   "employeeReturn":{
+      "properties":{
+         "message":{
+            "type":"string",
+            "example":"Succesfully Employee Retrieved"
+         },
+         "status":{
+            "type":"string",
+            "example":"200"
+         },
+         "data":{
+            "type":"array",
+            "items":{
+               "type":"object",
+               "properties":{
+                  "feature":{
+                     "type":"string",
+                     "example":"Profile"
+                  },
+         
+                  "section": {
+                     "type":"array",
+                     "items":{
+                        "minItems":1,
+                        "type":"object",
+                        "required":[
+                           "fields"
+                        ],
+                        "properties":{
+                           "SectionName": {
+                              "type":"string",
+                              "example":"PersonalInfo"
+                           },
+         
+                           "fields":{
+                              "type":"array",
+                              "items":{
+                                 "minItems":1,
+                                 "type":"object",
+                                 "properties":{
+                                    "name": {
+                                       "type":"string",
+                                       "example":"FirstName"
+                                    },
+                                    "attributeValue": {
+                                       "type":"string",
+                                       "example":"Rajashekhar"
+                                    },
+                                    "type": {
+                                       "type":"string",
+                                       "example":"text"
+                                    }
+                                    ,
+                                    "isMandatory": {
+                                       "type":"boolean",
+                                       "example":true
+                                    }
+                                 }
+                                 }
+                           }
+                        }
+                  }
+               }
+               }
+            }
+         }
+      }
+   },
+
+   "EmployeeWorkExpModel":{
+      "required":[
+         "idEmployee"
+      ],
+      
+      "properties":{
+      "feature":{
+         "type":"string",
+         "example":"Profile"
+      },
+      "idEmployee":{
+         "type":"string",
+         "example":"2f5bbf1c-71c7-43ac-bab7-f0a936b32146"
+      },
+
+      "section": {
+         "type":"array",
+         "items":{
+            "minItems":4,
+            "type":"object",
+            "required":[
+               "fields"
+            ],
+            "properties":{
+               "SectionName": {
+                  "type":"string",
+                  "example":"work"
+               },
+
+               "fields":{
+                  "type":"array",
+                  "items":{
+                     "minItems":1,
+                     "type":"object",
+                     "properties":{
+                        "name": {
+                           "type":"string",
+                           "example":"previousCompany"
+                        },
+                        "attributeValue": {
+                           "type":"string",
+                           "example":"Infosys"
+                        },
+                        "type": {
+                           "type":"string",
+                           "example":"text"
+                        }
+                        ,
+                        "isMandatory": {
+                           "type":"boolean",
+                           "example":true
+                        }
+                     }
+                     }
+               }
+            }
+      }
+   }
+}
+
+   }
+   
+
+  }
+}
